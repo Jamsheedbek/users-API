@@ -1,3 +1,4 @@
+const elLoader = $_(".js-loader")
 const usersList = document.querySelector('.js-users-list');
 const listTemplate = document.getElementById('users-list-template');
 
@@ -10,6 +11,7 @@ let creatUsersList = user => {
   }
 
 const render = array => {
+    elLoader.classList.add('d-none')
     array.forEach(element => {
         usersList.appendChild(creatUsersList(element))
         console.log(element);
@@ -19,6 +21,5 @@ const render = array => {
 ;(async () => {
     const basicData = await fetch("https://reqres.in/api/users")
     const cleanData = await basicData.json()
-    console.log(cleanData.data);
     render(cleanData.data)
 })()
