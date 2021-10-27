@@ -1,0 +1,1 @@
+const $_ = (selector, node = document) => node.querySelector(selector);
